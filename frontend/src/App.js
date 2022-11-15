@@ -4,32 +4,32 @@ import './App.css';
 import AuthorList from './components/Author.js';
 import axios from 'axios';
 
-cclass App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-    'authors': []
+      'authors': []
     }
   }
 
   componentDidMount() {
-      axios.get('http://127.0.0.1:8000/api/authors')
-        .then(response => {
-          const authors = response.data
-          this.setState(
-            {
+    axios.get('http://127.0.0.1:8000/api/authors')
+      .then(response => {
+        const authors = response.data
+        this.setState(
+          {
             'authors': authors
-            }
-          )
-        }).catch(error => console.log(error))
-    }
-  
-  render () {
-      return (
-        <div>
-         <AuthorList authors={this.state.authors} />
-        </div>
-      )
+          }
+        )
+      }).catch(error => console.log(error))
+  }
+
+  render() {
+    return (
+      <div>
+        <AuthorList authors={this.state.authors} />
+      </div>
+    )
   }
 }
 
