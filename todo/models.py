@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Project(models.Model):
-    pass
-
-
-class TODO(models.Model):
-    pass
+    notes = models.CharField(max_length=64)
+    date_creation = models.DateField()
+    date_update = models.DateField()
+    user = models.CharField(max_length=64)
+    actives = models.BooleanField()
