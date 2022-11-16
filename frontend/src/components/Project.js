@@ -4,32 +4,44 @@ const ProjectItem = ({ project }) => {
     return (
         <tr>
             <td>
-                {author.first_name}
+                {project.note}
             </td>
             <td>
-                {author.last_name}
+                {project.date_creation}
             </td>
             <td>
-                {author.birthday_year}
+                {project.date_update}
+            </td>
+            <td>
+                {project.user}
+            </td>
+            <td>
+                {project.actives}
             </td>
         </tr>
     )
 }
 
 
-const ProjectList = ({ project }) => {
+const ProjectList = ({ projects }) => {
     return (
         <table>
             <th>
-                First name
+                Notes
             </th>
             <th>
-                Last Name
+                Date creation
             </th>
             <th>
-                Birthday year
+                Date update
             </th>
-            {project.map((project) => <ProjectItem project={project} />)}
+            <th>
+                User
+            </th>
+            <th>
+                Active / Passive
+            </th>
+            {projects.map((project) => <ProjectItem project={project} />)}
         </table>
     )
 }
