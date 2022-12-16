@@ -12,7 +12,22 @@ from .filters import ProjectFilter
 from .models import Project
 from .serializers import ProjectSerializer
 
+from rest_framework.permissions import IsAuthenticated, AllowAny
+
 # Create your views here.
+
+from .models import Author, Book
+from .serializers import AuthorSerializer, BookSerializer
+
+
+class AuthorViewSet(viewsets.ModelViewSet):
+    serializer_class = AuthorSerializer
+    queryset = Author.objects.all()
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    serializer_class = BookSerializer
+    queryset = Book.objects.all()
 
 
 class ProjectModelViewSet(viewsets.ModelViewSet):
@@ -22,6 +37,9 @@ class ProjectModelViewSet(viewsets.ModelViewSet):
 
 
 class ProjectAPIVIew(APIView):
+
+    permission_classes = [AllowAny]
+
     renderer_classes = [JSONRenderer]
 
     def get(self, request, format=None):
