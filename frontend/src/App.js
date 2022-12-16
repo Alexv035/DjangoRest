@@ -5,22 +5,25 @@ import AuthorList from './components/Author.js';
 import ProjectList from './components/Project.js';
 
 import axios from 'axios';
+import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      'projects': []
+      'authorts': []
+      // 'projects': []
     }
   }
 
   componentDidMount() {
-    axios.get('http://127.0.0.1:8000/project/projects')
+    axios.get('http://127.0.0.1:8000/api/authors')
       .then(response => {
         const authors = response.data
         this.setState(
           {
-            'projects': projects
+            'authors': authors,
+            'project': project
           }
         )
       }).catch(error => console.log(error))
@@ -28,11 +31,38 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <ProjectList projects={this.state.projects} />
+      <div className="App">
+        <Route exact path='/books/create' component={() => <BookForm />} />
+        <Route exact path='/books' component={() => <BookList items={this.state.books} deleteBook={(id) => this.deleteBook(id)} />} />
+        <Route exact path='/books/create' component={() => <BookForm createBook={(name, author) => this.createBook(name, author)} />} />
       </div>
     )
   }
+
+  deleteBook(id) {
+    const headers = this.get_headers()
+    axios.delete(`http://127.0.0.1:8000/api/books/${id}`, { headers, headers })
+      .then(response => {
+        this.setState({
+          books: this.state.books.filter((item) => item.id !==
+            id)
+        })
+      }).catch(error => console.log(error))
+  }
+
+  createBook(name, author) {
+    const headers = this.get_headers()
+    const data = { name: name, author: author }
+    axios.post(`http://127.0.0.1:8000/api/books/`, data, { headers, headers })
+      .then(response => {
+        let new_book = response.data
+        const author = this.state.authors.filter((item) => item.id ===
+          new_book.author)[0]
+        new_book.author = author
+        this.setState({ books: [...this.state.books, new_book] })
+      }).catch(error => console.log(error))
+  }
+
 }
 
 export default App;
@@ -70,3 +100,23 @@ export default App;
 // }
 
 // export default App;
+
+
+// axios.get('http://127.0.0.1:8000/project/projects')
+// .then(response => {
+//     const authors = response.data
+//   this.setState(
+//   {
+//     'projects': projects
+//   }
+// )
+// }).catch (error => console.log(error))
+// }
+
+// render() {
+//   return (
+//     <div>
+//       <ProjectList projects={this.state.projects} />
+//     </div>
+//   )
+// }
