@@ -3,21 +3,17 @@ from rest_framework import mixins, viewsets
 from rest_framework.decorators import action, api_view, renderer_classes
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.renderers import BrowsableAPIRenderer, JSONRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
 from .filters import ProjectFilter
-from .models import Project
-from .serializers import ProjectSerializer
-
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from .models import Author, Book, Project
+from .serializers import AuthorSerializer, BookSerializer, ProjectSerializer
 
 # Create your views here.
-
-from .models import Author, Book
-from .serializers import AuthorSerializer, BookSerializer
 
 
 class AuthorViewSet(viewsets.ModelViewSet):

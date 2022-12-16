@@ -1,10 +1,9 @@
-from .models import Author, Book
 from rest_framework import serializers
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework.serializers import HyperlinkedModelSerializer
 
-from .models import Project
+from .models import Author, Book, Project
 
 
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
@@ -22,10 +21,10 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = '__all__'
+        fields = "__all__"
 
 
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = '__all__'
+        fields = "__all__"

@@ -23,9 +23,7 @@ from authors.views import AuthorModelViewSet
 from todo import views
 from todo.models import Project
 from todo.serializers import ProjectSerializer
-from todo.views import ProjectModelViewSet
-
-from todo.views import AuthorViewSet, BookViewSet
+from todo.views import AuthorViewSet, BookViewSet, ProjectModelViewSet
 
 router = DefaultRouter()
 router.register("authors", AuthorModelViewSet)
@@ -34,8 +32,8 @@ router.register("base", views.ProjectViewSet, basename="project")
 
 filter_router = DefaultRouter()
 filter_router.register("param", views.ProjectParamFilterViewSet)
-router.register('authors', AuthorViewSet)
-router.register('books', BookViewSet)
+router.register("authors", AuthorViewSet)
+router.register("books", BookViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -47,7 +45,7 @@ urlpatterns = [
     path("viewsets/", include(router.urls)),
     path("filters/kwargs/<str:name>/", views.ProjectKwargsFilterView.as_view()),
     path("filters/", include(filter_router.urls)),
-    path('api-token-auth/', views.obtain_auth_token),
+    path("api-token-auth/", views.obtain_auth_token),
 ]
 
 
