@@ -1,9 +1,9 @@
 from django.shortcuts import render
+from rest_framework import permissions, viewsets
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Author
-from rest_framework import viewsets, permissions
-from .serializers import AuthorSerializer, AuthorSerializerBase, AuthorModelSerializer
+from .serializers import AuthorModelSerializer, AuthorSerializer, AuthorSerializerBase
 
 # Create your views here.
 
@@ -18,6 +18,6 @@ class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
 
     def get_serializer_class(self):
-        if self.request.version == '2.0':
+        if self.request.version == "2.0":
             return AuthorSerializerBase
         return AuthorSerializer
