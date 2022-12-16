@@ -38,7 +38,7 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls")),
     path("api/", include(router.urls)),
     path("project/", include(router.urls)),
-    path("views/api-view/", views.ArticleAPIVIew.as_view()),
+    path("views/api-view/", views.ProjectAPIVIew.as_view()),
     path("generic/retrieve/<int:pk>/", views.ProjectRetrieveAPIView.as_view()),
     path("viewsets/", include(router.urls)),
     path("filters/kwargs/<str:name>/", views.ProjectKwargsFilterView.as_view()),
