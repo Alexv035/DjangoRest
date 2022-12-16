@@ -1,12 +1,13 @@
 import graphene
 from graphene_django import DjangoObjectType
+
 from authors.models import Author
 
 
 class AuthorType(DjangoObjectType):
     class Meta:
         model = Author
-        fields = '__all__'
+        fields = "__all__"
 
 
 class Query(graphene.ObjectType):

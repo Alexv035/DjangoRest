@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "todo",
     "django.contrib.staticfiles",  # Required for GraphiQL
-    "graphene_django"
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -148,6 +148,4 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 5,
 }
 
-GRAPHENE = {
-    "SCHEMA": "library.schema.schema"
-}
+GRAPHENE = {"SCHEMA": "library.schema.schema"}

@@ -1,6 +1,6 @@
-
 from django.contrib import admin
 from django.urls import include, path
+from graphene_django.views import GraphQLView
 from rest_framework.generics import DestroyAPIView, UpdateAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.routers import DefaultRouter
@@ -10,8 +10,6 @@ from todo import views
 from todo.models import Project
 from todo.serializers import ProjectSerializer
 from todo.views import ProjectModelViewSet
-
-from graphene_django.views import GraphQLView
 
 router = DefaultRouter()
 router.register("authors", AuthorModelViewSet)
