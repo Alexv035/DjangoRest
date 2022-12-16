@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     "authors",
     "corsheaders",
     "todo",
+    "django.contrib.staticfiles",  # Required for GraphiQL
+    "graphene_django"
 ]
 
 MIDDLEWARE = [
@@ -144,4 +146,8 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 5,
+}
+
+GRAPHENE = {
+    "SCHEMA": "library.schema.schema"
 }
