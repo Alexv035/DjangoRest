@@ -6,6 +6,8 @@ import ProjectList from './components/Project.js';
 
 import axios from 'axios';
 
+import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -28,8 +30,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <ProjectList projects={this.state.projects} />
+      <div className="App">
+        <BrowserRouter>
+          ...
+        </BrowserRouter>
       </div>
     )
   }
