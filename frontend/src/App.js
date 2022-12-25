@@ -7,6 +7,8 @@ import ProjectList from './components/Project.js';
 import axios from 'axios';
 import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom'
 
+import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -32,9 +34,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+<<<<<<< HEAD
         <Route exact path='/books/create' component={() => <BookForm />} />
         <Route exact path='/books' component={() => <BookList items={this.state.books} deleteBook={(id) => this.deleteBook(id)} />} />
         <Route exact path='/books/create' component={() => <BookForm createBook={(name, author) => this.createBook(name, author)} />} />
+=======
+        <BrowserRouter>
+          ...
+        </BrowserRouter>
+>>>>>>> 93783c285dd1ab35e4ccf852f2586c2b6daed28d
       </div>
     )
   }
