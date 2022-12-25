@@ -17,6 +17,8 @@ const NotFound404 = ({ location }) => {
   )
 }
 
+import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
+
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -81,6 +83,7 @@ class App extends React.Component {
         <li>
           <Link to='/login'>Login</Link>
         </li>
+
       </div>
     )
   }
