@@ -3,7 +3,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework.serializers import HyperlinkedModelSerializer
 
-from .models import Project
+from .models import Author, Book, Project
 
 
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,3 +16,15 @@ class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     # date_update = serializers.DateField()
     # user = serializers.CharField(max_length=64)
     # actives = serializers.BooleanField()
+
+
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = "__all__"
+
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = "__all__"
