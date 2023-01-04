@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     "authors",
     "corsheaders",
     "todo",
+    "django.contrib.staticfiles",  # Required for GraphiQL
+    "graphene_django",
     "rest_framework.authtoken",
+
 ]
 
 MIDDLEWARE = [
@@ -157,6 +160,10 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 5,
 }
 
+
+GRAPHENE = {"SCHEMA": "library.schema.schema"}
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
