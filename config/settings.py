@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     "graphene_django",
     "rest_framework.authtoken",
 
+    "userapp",
+    "django.contrib.staticfiles",
+    "drf_yasg",
+    "rest_framework_swagger",
 ]
 
 MIDDLEWARE = [
@@ -155,9 +159,12 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
-
+    # "rest_framework.permissions.AllowAny",
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 5,
+    # 'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    # 'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.NamespaceVersioning',
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.AcceptHeaderVersioning",
 }
 
 
@@ -166,4 +173,3 @@ GRAPHENE = {"SCHEMA": "library.schema.schema"}
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
-
