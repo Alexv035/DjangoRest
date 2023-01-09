@@ -1,15 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import AuthorList from './components/Author.js';
-import ProjectList from './components/Project.js';
+import React from 'react'
+import logo from './logo.svg'
+import './App.css'
+import AuthorList from './components/Author.js'
+import ProjectList from './components/Project.js'
 import LoginForm from './components/Auth.js'
-import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom'
 
-import axios from 'axios';
+import axios from 'axios'
 
 import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom'
-import Cookies from 'universal-cookie';
+import Cookies from 'universal-cookie'
 
 const NotFound404 = ({ location }) => {
   return (
@@ -19,15 +18,12 @@ const NotFound404 = ({ location }) => {
   )
 }
 
-
-import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom'
-
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       'authorts': [],
-      // 'projects': []
+      'projects': [],
       'token': ''
 
     }
@@ -76,7 +72,7 @@ class App extends React.Component {
         this.setState(
           {
             'authors': authors,
-            'project': project
+            // 'project': project
           }
         )
       }).catch(error => console.log(error))
