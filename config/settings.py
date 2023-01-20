@@ -167,6 +167,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
